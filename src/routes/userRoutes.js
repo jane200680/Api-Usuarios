@@ -11,14 +11,20 @@ router.get('/', async (req, res, _next) =>{
         _next(error)
     }
 })
-router.post('/', async (req, res, _next) =>{
-    try{
-        const user = await userService.create(req.body);
-        res.status(201).json({data:user})
-    } catch(error){
-        _next(error)
-    }
-})
+router.post("/", async (req, res, next) => {
+  try {
+    console.log("Body recibido:", req.body);
+
+    const user = await userService.create(req.body);
+
+    console.log("Usuario creado:", user);
+
+    res.status(201).json({ data: user });
+  } catch (error) {
+    console.error("ERROR EN POST:", error);
+    next(error);
+  }
+});
 
 router.put("/:id", async (req, res, _next) => {
   try {
