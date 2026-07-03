@@ -1,2 +1,2 @@
 ### Servidor corriendo 
-(src/screenshots/Servidorcorriendo.png)
+![Servidor](src/screenshots/Servidorcorriendo.png)
